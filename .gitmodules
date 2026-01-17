@@ -1,3 +1,4 @@
 [submodule "KonomiTV"]
 	path = KonomiTV
 	url = https://github.com/tsukumijima/KonomiTV.git
+	branch = release

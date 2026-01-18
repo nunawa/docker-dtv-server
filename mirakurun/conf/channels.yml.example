@@ -37,10 +37,6 @@
     type: GR
     channel: '27'
     isDisabled: false
-  - name: TBS
-    type: GR
-    channel: '45'
-    isDisabled: false
   - name: BS01/TS0
     type: BS
     channel: BS01_0
@@ -57,9 +53,9 @@
     type: BS
     channel: BS09_0
     isDisabled: false
-  - name: BS09/TS2
+  - name: BS09/TS1
     type: BS
-    channel: BS09_2
+    channel: BS09_1
     isDisabled: false
   - name: BS13/TS0
     type: BS
@@ -85,7 +81,7 @@
     type: BS
     channel: BS23_1
     isDisabled: false
-  - name: BS23/TS3
+  - name: BS23/TS2
     type: BS
-    channel: BS23_3
+    channel: BS23_2
     isDisabled: false

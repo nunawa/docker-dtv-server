@@ -28,13 +28,25 @@ services:
         max-file: "1"
         max-size: 10m
 
+  mirakurun_init:
+    image: mirakurun
+    container_name: Mirakurun_init_container
+    build:
+      context: ./mirakurun
+    depends_on:
+      mirakurun:
+        condition: service_started
+    network_mode: host
+    command: [ "sh", "-c", "until wget -nv --spider http://localhost:40772/api/status; do sleep 3; done" ]
+
   edcb_chscan:
     image: edcb
     container_name: EDCB_ChScan
     build:
       context: ./EDCB
     depends_on:
-      - mirakurun
+      mirakurun_init:
+        condition: service_completed_successfully
     network_mode: host
     volumes:
       - type: bind
@@ -56,8 +68,8 @@ services:
     build:
       context: ./EDCB
     depends_on:
-      mirakurun:
-        condition: service_started
+      mirakurun_init:
+        condition: service_completed_successfully
       edcb_chscan:
         condition: service_completed_successfully
     restart: always
@@ -86,8 +98,10 @@ services:
     build:
       context: ./KonomiTV
     depends_on:
-      - mirakurun
-      - edcb
+      mirakurun_init:
+        condition: service_completed_successfully
+      edcb:
+        condition: service_started
     restart: always
     network_mode: host
     volumes:

@@ -63,8 +63,4 @@ COPY --from=builder /var/local/edcb/ /var/local/edcb/
 # デバッグ用に移動しておく
 WORKDIR /var/local/edcb
 
-# entrypoint.shをコピーして実行権限付与
-COPY ./entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/entrypoint.sh
-
-CMD [ "/usr/local/bin/entrypoint.sh" ]
+CMD ["/usr/local/bin/EpgDataCap_Bon", "-d", "BonDriver_LinuxMirakc.so", "-chscan", "&&", "echo", "Exiting..."]

@@ -1,5 +1,7 @@
 # docker-dtv-server
 
+![docker-dtv-serverを立ち上げた時のスクリーンショット](./screenshot.webp)
+
 Dockerで構築するMirakurun + EDCB + KonomiTVなTV視聴・録画環境
 
 ## 技術スタック

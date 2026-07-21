@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 
 # デコーダーのインストール
 WORKDIR /tmp
-RUN wget -nv https://github.com/tsukumijima/libaribb25/releases/download/v0.2.9/libaribb25_0.2.9_amd64.deb && \
-    apt-get install -y --no-install-recommends ./libaribb25_0.2.9_amd64.deb
+RUN wget -nv https://github.com/tsukumijima/libaribb25/releases/download/v0.2.10/libaribb25_0.2.10_amd64.deb && \
+    apt-get install -y --no-install-recommends ./libaribb25_0.2.10_amd64.deb
 
 # recpt1のインストール
 WORKDIR /tmp
